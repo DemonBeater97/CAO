@@ -29,7 +29,7 @@ const SLIDER_INFO = {
 };
 
 const PROFILES = [
-  { id: 'tmw4', name: 'Tournament MW4', tag: 'Eigenes', tagColor: '#5fd3c0', short: 'Viel Schritt-Detail, wenig Wumms',
+  { id: 'tmw4', games: ['mw4', 'dmz', 'bo7'], name: 'Tournament MW4', tag: 'Eigenes', tagColor: '#5fd3c0', short: 'Viel Schritt-Detail, wenig Wumms',
     en: { tag: 'Own', short: 'Lots of footstep detail, little boom', note: 'Built on Tournament (old), values from Triton, Eclipse and the Rara analysis. For multiplayer and ranked.', variantLabel: 'Test variant “quieter explosions”',
       tips: ['Explosions annoying → try the variant (bass −0.5 / voice +1 / treble +1)', 'Footsteps behind walls too quiet → point 3 (180 Hz) to +7', 'Gunshots too sharp → point 7 (3.2 kHz) to −4'] },
     note: 'Aufbau von Tournament (alt), Werte aus Triton, Eclipse und Rara-Analyse. Für Multiplayer und Ranked.',
@@ -38,7 +38,7 @@ const PROFILES = [
     variant: { label: 'Testvariante „Explosionen leiser“', sliders: { bass: -0.5, voice: 1, treble: 1 } },
     tips: ['Explosionen nerven → Variante testen (Bass −0,5 / Stimme +1 / Höhe +1)', 'Schritte hinter Wänden zu leise → Punkt 3 (180 Hz) auf +7', 'Schüsse zu scharf → Punkt 7 (3,2 kHz) auf −4'],
     trick: { C: 0.4, F: 0.6, S: 1, R: 1, SUB: 0.5 } },
-  { id: 'triton', name: 'MW4 Triton', tag: 'Empfehlung', tagColor: '#ff7a1a', short: 'Ausgewogen für Multiplayer',
+  { id: 'triton', games: ['mw4', 'dmz', 'bo7'], name: 'MW4 Triton', tag: 'Empfehlung', tagColor: '#ff7a1a', short: 'Ausgewogen für Multiplayer',
     en: { tag: 'Recommended', short: 'Balanced for multiplayer', note: 'Tuned to the MW4 sound with room echo and muffled walls. Good for long sessions.',
       tips: ['Enemies behind walls too quiet → point 2 to +6.5', 'Gunshots too sharp → point 5 to −3', 'Everything echoey → point 3 to −4'] },
     note: 'Abgestimmt auf den MW4-Sound mit Raumhall und gedämpften Wänden. Gut für lange Sessions.',
@@ -46,20 +46,75 @@ const PROFILES = [
     sliders: { bass: 0, voice: 0, treble: 0 },
     tips: ['Gegner hinter Wänden zu leise → Punkt 2 auf +6,5', 'Schüsse zu scharf → Punkt 5 auf −3', 'Alles hallig → Punkt 3 auf −4'],
     trick: { C: 0.5, F: 0.7, S: 1, R: 1, SUB: 0.6 } },
-  { id: 'eclipse', name: 'MW4 Eclipse', tag: 'Warzone', tagColor: '#64b5d6', short: 'Schritte stark betont',
+  { id: 'eclipse', games: ['mw4', 'dmz', 'bo7'], name: 'MW4 Eclipse', tag: 'Warzone', tagColor: '#64b5d6', short: 'Schritte stark betont',
     en: { tag: 'Warzone', short: 'Strongly boosted footsteps', note: 'More boom, very clear footsteps. Better for big maps.', tips: ['Explosions boom too much → point 2 to +3', 'Footsteps too muffled → point 5 to +7'] },
     note: 'Mehr Wumms, sehr deutliche Schritte. Eher für große Karten.',
     points: [P('lowshelf',80,-6,0.7), P('peak',180,5,0.9), P('peak',400,-2,1), P('peak',3500,-1.5,1.2), P('peak',6500,5,1.4), P('highshelf',12000,-3,0.7)],
     sliders: { bass: 0, voice: 0, treble: 0 },
     tips: ['Explosionen wummern → Punkt 2 auf +3', 'Schritte zu dumpf → Punkt 5 auf +7'],
     trick: { C: 0.5, F: 0.7, S: 1, R: 1, SUB: 0.6 } },
-  { id: 'story', name: 'Kampagne', tag: 'Story', tagColor: '#9aa1a9', short: 'Voller Klang, mehr Wumms',
+  { id: 'story', games: ['story'], name: 'Kampagne', tag: 'Story', tagColor: '#9aa1a9', short: 'Voller Klang, mehr Wumms',
     en: { name: 'Campaign', short: 'Full sound, more boom', note: 'For campaign and movies: barely any changes, a bit more bass and sparkle.' },
     note: 'Für Kampagne und Filme: kaum Eingriffe, etwas mehr Bass und Glanz.',
     points: [P('lowshelf',70,2,0.7), P('peak',300,-1,1), P('peak',3000,1,1), P('highshelf',10000,1.5,0.7)],
     sliders: { bass: 0, voice: 0, treble: 0 },
-    tips: [], trick: null }
+    tips: [], trick: null },
+  // ---------- Eigene Profile für andere Spiele (Startpunkte aus Community-Guides, eigene Abstimmung) ----------
+  { id: 'bf6', games: ['bf6', 'wardogs'], name: 'BF6 Frontline', tag: 'Battlefield', tagColor: '#e0a33a', short: 'Explosionen runter, Schritte rauf',
+    en: { short: 'Explosions down, footsteps up', note: 'For Battlefield 6 (and WARDOGS): big cut for explosions, tanks and helicopters, footsteps at 200 Hz and 6 kHz clearly forward, gunshot crack at 3 kHz a bit softer. In game: War Tapes mix.',
+      tips: ['Tanks/explosions still too much → point 1 to −12', 'Footsteps on concrete too quiet → point 6 (6 kHz) to +6', 'Everything sharp after long rounds → point 7 to −3'] },
+    note: 'Für Battlefield 6 (und WARDOGS): Explosionen, Panzer und Hubschrauber stark gesenkt, Schritte bei 200 Hz und 6 kHz deutlich nach vorne, Schuss-Knall bei 3 kHz etwas weicher. Im Spiel: Mix „War Tapes“.',
+    points: [P('lowshelf',100,-10,0.7), P('peak',200,6.5,1.1), P('peak',450,-2.5,1), P('peak',1400,1,1), P('peak',3000,-3,1.4), P('peak',6000,5,1.4), P('highshelf',11000,-2,0.7)],
+    sliders: { bass: 0, voice: 0, treble: 0 },
+    tips: ['Panzer/Explosionen noch zu viel → Punkt 1 auf −12', 'Schritte auf Beton zu leise → Punkt 6 (6 kHz) auf +6', 'Nach langen Runden alles scharf → Punkt 7 auf −3'],
+    trick: null },
+  { id: 'r6', games: ['r6'], name: 'Siege Breach', tag: 'Rainbow Six', tagColor: '#7aa7e8', short: 'Schritte über und unter dir',
+    en: { short: 'Footsteps above and below you', note: 'For Rainbow Six Siege X: footsteps carry their body at 100–500 Hz – important for floors above and below you. Breach and explosion boom cut hard, surface detail at 3.6 kHz and edge at 7.6 kHz slightly raised. In game: dynamic range low (Night Mode).',
+      tips: ['Breaches too loud → point 1 to −12 and point 2 to +4', 'Footsteps upstairs too muffled → point 3 (260 Hz) to +5', 'Drones/gadgets too quiet → point 5 (3.6 kHz) to +3'] },
+    note: 'Für Rainbow Six Siege X: Schritte haben ihren Körper bei 100–500 Hz – wichtig für Stockwerke über und unter dir. Breach- und Explosions-Wumms stark gesenkt, Oberflächen-Detail bei 3,6 kHz und Kante bei 7,6 kHz leicht angehoben. Im Spiel: Dynamikumfang niedrig (Nachtmodus).',
+    points: [P('lowshelf',80,-12,0.7), P('peak',150,5,1.2), P('peak',260,4,1.2), P('peak',1000,-1,1), P('peak',3600,2,1.4), P('peak',7600,3.5,1.6), P('highshelf',12000,-2,0.7)],
+    sliders: { bass: 0, voice: 0, treble: 0 },
+    tips: ['Breaches zu laut → Punkt 1 auf −12 lassen und Punkt 2 auf +4', 'Schritte von oben zu dumpf → Punkt 3 (260 Hz) auf +5', 'Drohnen/Gadgets zu leise → Punkt 5 (3,6 kHz) auf +3'],
+    trick: null },
+  { id: 'arc', games: ['arc'], name: 'ARC Raider', tag: 'ARC Raiders', tagColor: '#5fbf8f', short: 'Schritte und Looten auf Distanz',
+    en: { short: 'Footsteps and looting at distance', note: 'For ARC Raiders: footsteps sit at 200–400 Hz (body) and 6–10 kHz (detail) – both raised. ARC machines and explosions only moderately lowered so you can still hear drones coming. Highs up to 10 kHz for distant footsteps.',
+      tips: ['Highs too sharp on bright headphones → points 5 and 6 −1 each', 'ARC drones too quiet → point 1 to −5', 'Footsteps indoors too muffled → point 2 (225 Hz) to +5.5'] },
+    note: 'Für ARC Raiders: Schritte liegen bei 200–400 Hz (Körper) und 6–10 kHz (Detail) – beides angehoben. ARC-Maschinen und Explosionen nur mäßig gesenkt, damit du Drohnen noch kommen hörst. Höhen bis 10 kHz für entfernte Schritte.',
+    points: [P('lowshelf',90,-7,0.7), P('peak',225,4.5,1.2), P('peak',380,2.5,1.8), P('peak',1175,1,2), P('peak',6750,5.5,2), P('peak',9700,3.5,2.5)],
+    sliders: { bass: 0, voice: 0, treble: 0 },
+    tips: ['Höhen bei hellen Kopfhörern zu scharf → Punkt 5 und 6 je −1', 'ARC-Drohnen zu leise → Punkt 1 auf −5', 'Schritte drinnen zu dumpf → Punkt 2 (225 Hz) auf +5,5'],
+    trick: null },
+  { id: 'valorant', games: ['valorant'], name: 'Valorant HRTF', tag: 'Valorant', tagColor: '#ff5a64', short: 'Für HRTF abgestimmt, klare Schritte',
+    en: { short: 'Tuned for HRTF, clear footsteps', note: 'For Valorant with HRTF on: deep bass cut, footstep weight at 125 Hz, definition at 2.6 kHz and texture at 4.6–6.2 kHz raised. Slight roll-off above 10 kHz – less fatigue from the many ability sounds.',
+      tips: ['Ability sounds too shrill → point 7 to −3', 'Footsteps too thin → point 2 (125 Hz) to +6', 'Walking enemies too quiet → point 5 (4.6 kHz) to +6'] },
+    note: 'Für Valorant mit HRTF an: tiefer Bass gesenkt, Schritt-Gewicht bei 125 Hz, Klarheit bei 2,6 kHz und Struktur bei 4,6–6,2 kHz angehoben. Ab 10 kHz leicht abgesenkt – weniger anstrengend bei den vielen Fähigkeiten-Sounds.',
+    points: [P('lowshelf',70,-10,0.7), P('peak',125,5.5,1.2), P('peak',720,2.5,2), P('peak',2600,3,1.3), P('peak',4600,5,1.6), P('peak',6200,4,2), P('highshelf',10000,-2,0.7)],
+    sliders: { bass: 0, voice: 0, treble: 0 },
+    tips: ['Fähigkeiten zu schrill → Punkt 7 auf −3', 'Schritte zu dünn → Punkt 2 (125 Hz) auf +6', 'Gehende Gegner zu leise → Punkt 5 (4,6 kHz) auf +6'],
+    trick: null },
+  { id: 'cs2', games: ['cs2'], name: 'CS2 Crisp', tag: 'Counter-Strike', tagColor: '#e8c25a', short: 'Schritt-Anschlag klar, kein Wumms',
+    en: { short: 'Clear footstep attack, no boom', note: 'For Counter-Strike 2: footstep attack and surface sound sit at 1.5–3.5 kHz, metal details (ladders, defuse) at 4–8 kHz – both raised. HE grenades, AWP and C4 cut below 100 Hz. In game the “Natural” profile is enough, as CAO already does the “Crisp” part.',
+      tips: ['Footsteps too sharp → point 5 (3.2 kHz) to +1.5', 'Ladder/defuse too quiet → point 6 (5.5 kHz) to +4.5', 'Grenades still too loud → point 1 to −11'] },
+    note: 'Für Counter-Strike 2: Schritt-Anschlag und Untergrund liegen bei 1,5–3,5 kHz, Metall-Details (Leitern, Entschärfen) bei 4–8 kHz – beides angehoben. HE-Granaten, AWP und C4 unter 100 Hz gesenkt. Im Spiel reicht das Profil „Natürlich“, denn CAO übernimmt schon den „Crisp“-Teil.',
+    points: [P('lowshelf',100,-9,0.7), P('peak',250,2.5,1), P('peak',500,-1.5,1), P('peak',2000,3,1.2), P('peak',3200,2.5,1.5), P('peak',5500,3.5,1.6), P('highshelf',10000,-1.5,0.7)],
+    sliders: { bass: 0, voice: 0, treble: 0 },
+    tips: ['Schritte zu spitz → Punkt 5 (3,2 kHz) auf +1,5', 'Leiter/Entschärfen zu leise → Punkt 6 (5,5 kHz) auf +4,5', 'Granaten noch zu laut → Punkt 1 auf −11'],
+    trick: null }
 ];
+
+// Bewertung je Spiel: gleiche Frequenzbereiche, aber andere Ziele und Namen (CoD = Standard)
+const GAME_ZONES = {
+  bf6:      { bass: { goal: [-12, -6] }, tapp: { goal: [2, 6] }, hall: { goal: [-4, 0] }, shot: { goal: [-4, -1] }, detail: { goal: [2, 6] } },
+  wardogs:  { bass: { goal: [-12, -6] }, tapp: { goal: [2, 6] }, hall: { goal: [-4, 0] }, shot: { goal: [-4, -1] }, detail: { goal: [2, 6] } },
+  r6:       { bass: { goal: [-12, -6], name: 'Explosionen & Breaches', en: 'Explosions & breaches' }, tapp: { goal: [3, 7] }, hall: { goal: [0, 3], name: 'Schritt-Körper', en: 'Footstep body' }, shot: { goal: [0, 3], name: 'Schritt-Oberfläche', en: 'Footstep surface' }, detail: { goal: [1, 4] } },
+  arc:      { bass: { goal: [-9, -4], name: 'Explosionen & ARC', en: 'Explosions & ARC' }, tapp: { goal: [1, 5] }, hall: { goal: [0, 3], name: 'Schritt-Körper', en: 'Footstep body' }, shot: { goal: [-2, 1] }, detail: { goal: [2, 5] } },
+  valorant: { bass: { goal: [-10, -5] }, tapp: { goal: [1, 5] }, hall: { goal: [-1, 2], name: 'Mitten', en: 'Mids' }, shot: { goal: [1, 4], name: 'Schritt-Klarheit', en: 'Footstep clarity' }, detail: { goal: [2, 5] } },
+  story:    { bass: { goal: [0, 3] }, tapp: { goal: [-1, 1] }, hall: { goal: [-2, 0] }, shot: { goal: [-1, 2] }, detail: { goal: [-1, 2] } },
+  cs2:      { bass: { goal: [-12, -6], name: 'Granaten & AWP', en: 'Grenades & AWP' }, tapp: { goal: [-1, 3] }, hall: { goal: [-3, 0] }, shot: { goal: [1, 5], name: 'Schritt-Anschlag', en: 'Footstep attack' }, detail: { goal: [1, 5], name: 'Metall-Details', en: 'Metal details' } }
+};
+const zonesFor = gid => ZONES.map(z => ({ ...z, ...((GAME_ZONES[gid] || {})[z.k] || {}) }));
+const profilesFor = gid => { const own = PROFILES.filter(p => (p.games || []).includes(gid)); return { own, other: PROFILES.filter(p => !own.includes(p)) }; };
+
 
 const DEFAULT_HEADPHONES = [
   { id: 'e9', name: 'Sony INZONE E9', bauart: 'In-Ear', verbindung: 'Kabel', builtIn: true, winLoudness: true,
@@ -190,10 +245,10 @@ function labProfiles() {
   try { s = JSON.parse(localStorage.getItem(LAB_STORE) || 'null'); } catch {}
   if (!s || !Array.isArray(s.profiles)) return [];
   const builtin = new Set(['tmw4', 'triton', 'eclipse', 'story']);
-  return s.profiles.filter(p => p && p.kind === 'sonar' && Array.isArray(p.points) && !builtin.has(p.id)).map(p => {
+  return s.profiles.filter(p => p && p.kind === 'sonar' && Array.isArray(p.points) && !builtin.has(p.id) && !String(p.id).startsWith('g-')).map(p => {
     const sl = Array.isArray(p.sliders) ? p.sliders : [0, 0, 0];
     return {
-      id: 'lab:' + p.id, lab: true, name: p.name, tag: p.own ? T('Labor · eigenes', 'Lab · own') : T('Labor', 'Lab'), tagColor: LAB_COLORS[((p.c % 8) + 8) % 8],
+      id: 'lab:' + p.id, lab: true, games: Array.isArray(p.games) ? p.games : ['mw4', 'dmz', 'bo7'], name: p.name, tag: p.own ? T('Labor · eigenes', 'Lab · own') : T('Labor', 'Lab'), tagColor: LAB_COLORS[((p.c % 8) + 8) % 8],
       short: labWhat(p), note: labWhat(p) + T(' Bearbeiten kannst du es im Audio-Labor.', ' You can edit it in the Audio Lab.'), hasCorr: !!p.hasCorr,
       points: p.points.filter(x => x.on !== false).slice(0, 10).map(x => P(x.type in TYPES ? x.type : 'peak', +x.f || 1000, +x.g || 0, +x.q || 0.7)),
       sliders: { bass: +sl[0] || 0, voice: +sl[1] || 0, treble: +sl[2] || 0 },
@@ -243,22 +298,22 @@ const GAME_FACTS = {
   bf6: [
     ['Eigener Kopfhörer-Mix', 'Battlefield 6 mischt selbst für Kopfhörer (Soundsystem „Kopfhörer“). Sonar Spatial Audio und CAO-Raumklang aus lassen.'],
     ['War Tapes', 'Der Audio-Mix „War Tapes“ gilt als der mit der klarsten Ortung. Musik auf 0, Tinnitus-Effekt auf 0.'],
-    ['Sound-Profile', 'Die Profile sind auf CoD abgestimmt. Der Equalizer hilft trotzdem (Explosionen leiser, Schritte klarer), ist aber nicht eigens für BF6 geprüft.']
+    ['Sound-Profil', 'Eigenes Profil „BF6 Frontline“: Explosionen und Fahrzeuge runter, Schritte bei 200 Hz und 6 kHz rauf. Startpunkt – nach Gefühl mit den Tipps feinjustieren.']
   ],
   r6: [
     ['Sound ist alles', 'In Siege hörst du Gegner durch Wände, Böden und Decken. Dynamikumfang „Niedrig (Nachtmodus)“ hebt leise Geräusche an – das nutzen fast alle Profis.'],
     ['Eigene 3D-Ortung', 'Siege ortet selbst in 3D. Zusätzlicher Raumklang (Windows Sonic, Sonar, CAO) macht Schritte oft ungenauer – aus lassen oder bewusst nur eins nutzen.'],
-    ['Sound-Profile', 'Die Profile sind auf CoD abgestimmt und nicht eigens für Siege geprüft. Tipp: Profil mit wenig Wumms (Tournament MW4).']
+    ['Sound-Profil', 'Eigenes Profil „Siege Breach“: Schritt-Körper 100–500 Hz für Stockwerke über und unter dir, Breaches stark gesenkt.']
   ],
   arc: [
     ['Nachtmodus', 'ARC Raiders hat einen Nachtmodus für den Dynamikumfang. An = Schritte, Looten und entfernte ARC-Drohnen werden lauter, Explosionen leiser.'],
     ['Eigene Ortung', 'Das Spiel ortet selbst. Windows-Raumklang, Sonar Spatial Audio und CAO-Raumklang aus – sonst wird doppelt gerechnet.'],
-    ['Sound-Profile', 'Die Profile sind auf CoD abgestimmt und nicht eigens für ARC Raiders geprüft.']
+    ['Sound-Profil', 'Eigenes Profil „ARC Raider“: Schritte bei 200–400 Hz und 6–10 kHz, ARC-Maschinen nur mäßig gesenkt. Mit diesem Profil den Nachtmodus auch mal aus testen.']
   ],
   wardogs: [
     ['Nur PC (Early Access)', 'WARDOGS ist seit September 2026 im Early Access auf PC. PS5 und Xbox sind erst für 2028 angekündigt.'],
     ['3D Spatial Audio', 'Das Spiel hat einen eigenen 3D-Raumklang. An lassen und dafür Windows/Sonar/CAO-Raumklang aus.'],
-    ['Sound-Profile', 'Die Profile sind auf CoD abgestimmt und nicht eigens für WARDOGS geprüft.']
+    ['Sound-Profil', 'Nutzt „BF6 Frontline“ (ähnlicher Militär-Shooter mit Fahrzeugen). Noch nicht eigens für WARDOGS geprüft.']
   ],
   bo7: [
     ['Eine Datei für BO7 und Warzone', 'Black Ops 7 und Warzone teilen sich die Einstellungsdatei s.1.0.cod25.txt1. Der Game Optimizer ändert also beide.'],
@@ -268,12 +323,12 @@ const GAME_FACTS = {
   valorant: [
     ['Eigener Raumklang im Spiel', 'Valorant hat eine eigene Raumklang-Berechnung (Einstellungen → Audio → HRTF). Nutze entweder die oder Sonar/CAO-Raumklang – nie beides, sonst verschwimmt die Richtung.'],
     ['Ausgabe', 'Windows und Sonar auf Stereo lassen, Spatial Audio in Sonar aus.'],
-    ['Sound-Profile', 'Die Sound-Profile sind auf MW4 abgestimmt. Der Equalizer hilft trotzdem (Explosionen leiser, Schritte klarer), ist aber nicht eigens geprüft.']
+    ['Sound-Profil', 'Eigenes Profil „Valorant HRTF“ – passend zu HRTF an. Kein zusätzlicher Raumklang.']
   ],
   cs2: [
     ['Eigener Raumklang im Spiel', 'CS2 berechnet Raumklang selbst (Audio-Einstellungen, „Erweiterte 3D-Audioverarbeitung“). Dann Sonar Spatial Audio und CAO-Raumklang aus.'],
     ['Ausgabe', 'Im Spiel Kopfhörer / Stereo wählen.'],
-    ['Sound-Profile', 'Die Sound-Profile sind auf MW4 abgestimmt und nicht eigens für CS2 geprüft.']
+    ['Sound-Profil', 'Eigenes Profil „CS2 Crisp“: Schritt-Anschlag 1,5–3,5 kHz und Metall-Details rauf, Granaten runter.']
   ],
   story: [
     ['Nur Stereo', 'Viele Story-Spiele, Videos und Musik liefern nur Stereo. Raumklang kann daraus keine echte Richtung machen.'],
@@ -290,22 +345,22 @@ const GAME_FACTS_EN = {
   bf6: [
     ['Own headphone mix', 'Battlefield 6 mixes for headphones itself (sound system “Headphones”). Keep Sonar Spatial Audio and CAO surround off.'],
     ['War Tapes', 'The “War Tapes” audio mix is considered the clearest for positioning. Music to 0, tinnitus SFX to 0.'],
-    ['Sound profiles', 'The profiles are tuned for CoD. The EQ still helps (quieter explosions, clearer footsteps) but is not specifically checked for BF6.']
+    ['Sound profile', 'Own profile “BF6 Frontline”: explosions and vehicles down, footsteps at 200 Hz and 6 kHz up. A starting point – fine-tune with the tips.']
   ],
   r6: [
     ['Sound is everything', 'In Siege you hear enemies through walls, floors and ceilings. Dynamic range “Low (Night Mode)” raises quiet sounds – almost every pro uses it.'],
     ['Own 3D positioning', 'Siege positions in 3D itself. Extra surround (Windows Sonic, Sonar, CAO) often makes footsteps less precise – keep it off or deliberately use only one.'],
-    ['Sound profiles', 'The profiles are tuned for CoD and not specifically checked for Siege. Tip: a profile with little boom (Tournament MW4).']
+    ['Sound profile', 'Own profile “Siege Breach”: footstep body at 100–500 Hz for floors above and below you, breaches cut hard.']
   ],
   arc: [
     ['Night mode', 'ARC Raiders has a night mode for dynamic range. On = footsteps, looting and distant ARC drones get louder, explosions quieter.'],
     ['Own positioning', 'The game positions sound itself. Windows spatial sound, Sonar Spatial Audio and CAO surround off – otherwise it’s processed twice.'],
-    ['Sound profiles', 'The profiles are tuned for CoD and not specifically checked for ARC Raiders.']
+    ['Sound profile', 'Own profile “ARC Raider”: footsteps at 200–400 Hz and 6–10 kHz, ARC machines only moderately lowered. With this profile, also try night mode off.']
   ],
   wardogs: [
     ['PC only (Early Access)', 'WARDOGS has been in Early Access on PC since September 2026. PS5 and Xbox are announced for 2028.'],
     ['3D Spatial Audio', 'The game has its own 3D surround. Keep it on and turn Windows/Sonar/CAO surround off.'],
-    ['Sound profiles', 'The profiles are tuned for CoD and not specifically checked for WARDOGS.']
+    ['Sound profile', 'Uses “BF6 Frontline” (similar military shooter with vehicles). Not yet checked specifically for WARDOGS.']
   ],
   bo7: [
     ['One file for BO7 and Warzone', 'Black Ops 7 and Warzone share the settings file s.1.0.cod25.txt1, so the Game Optimizer changes both.'],
@@ -315,12 +370,12 @@ const GAME_FACTS_EN = {
   valorant: [
     ['Own surround in game', 'Valorant has its own surround processing (Settings → Audio → HRTF). Use either that or Sonar/CAO surround – never both, or the direction gets blurry.'],
     ['Output', 'Keep Windows and Sonar on stereo, Spatial Audio in Sonar off.'],
-    ['Sound profiles', 'The sound profiles are tuned for MW4. The EQ still helps (quieter explosions, clearer footsteps) but is not specifically checked.']
+    ['Sound profile', 'Own profile “Valorant HRTF” – matched to HRTF on. No extra surround.']
   ],
   cs2: [
     ['Own surround in game', 'CS2 does its own surround processing (audio settings, “Advanced 3D Audio Processing”). Then turn Sonar Spatial Audio and CAO surround off.'],
     ['Output', 'Choose headphones / stereo in game.'],
-    ['Sound profiles', 'The sound profiles are tuned for MW4 and not specifically checked for CS2.']
+    ['Sound profile', 'Own profile “CS2 Crisp”: footstep attack 1.5–3.5 kHz and metal details up, grenades down.']
   ],
   story: [
     ['Stereo only', 'Many story games, videos and music only deliver stereo. Surround cannot turn that into real direction.'],

@@ -51,7 +51,7 @@ const GAME_AUDIO = {
     _a('g-spat', ctx.pc ? T('Windows/Sonar/CAO-Raumklang', 'Windows/Sonar/CAO surround') : T('Raumklang der Konsole', 'Console surround'), T('Aus testen', 'Try off'), T('Siege ortet selbst in 3D – doppelter Raumklang macht Schritte oft ungenauer.', 'Siege positions in 3D itself – double surround often makes footsteps less precise.'))
   ],
   arc: ctx => [
-    _a('g-night', T('Nachtmodus (Dynamikumfang)', 'Night mode (dynamic range)'), T('An', 'On'), T('Hebt leise Geräusche wie Schritte, Looten und entfernte ARC-Drohnen an.', 'Raises quiet sounds like footsteps, looting and distant ARC drones.')),
+    _a('g-night', T('Nachtmodus (Dynamikumfang)', 'Night mode (dynamic range)'), T('An – mit CAO-Profil auch Aus testen', 'On – with a CAO profile also try off'), T('Hebt leise Geräusche wie Schritte, Looten und entfernte ARC-Drohnen an. Mit dem CAO-Profil sind Schritte schon angehoben – Aus kann die Entfernung besser zeigen.', 'Raises quiet sounds like footsteps, looting and distant ARC drones. With the CAO profile footsteps are already raised – off can show distance better.')),
     _a('g-out', T('Ausgabe', 'Output'), T('Stereo / Kopfhörer', 'Stereo / headphones'), ''),
     _a('g-sfx', T('Effekte', 'Effects'), '100', ''),
     _a('g-music', T('Musik', 'Music'), T('Niedrig', 'Low'), ''),
@@ -74,6 +74,9 @@ const GAME_AUDIO = {
   ],
   cs2: ctx => [
     _a('g-dev', T('Audiogerät', 'Audio device'), T('Kopfhörer', 'Headphones'), T('CS2 berechnet Raumklang selbst – Windows/Sonar/CAO-Raumklang aus.', 'CS2 does its own surround – keep Windows/Sonar/CAO surround off.')),
+    _a('g-eqp', T('EQ-Profil', 'EQ profile'), T('Natürlich', 'Natural'), T('Mit CAO-Profil „Natürlich“ – CAO hebt die Schritte schon an. Ohne CAO: „Crisp“.', 'With the CAO profile use “Natural” – CAO already raises footsteps. Without CAO: “Crisp”.')),
+    _a('g-iso', T('L/R-Isolation', 'L/R isolation'), '50 %', T('Deutliche Links-rechts-Trennung, ohne dass es unnatürlich klingt.', 'Clear left/right separation without sounding unnatural.')),
+    _a('g-persp', T('Perspektivenkorrektur', 'Perspective correction'), T('Ja', 'Yes'), T('Geräusche passen genauer zur Blickrichtung.', 'Sounds match your view direction more precisely.')),
     _a('g-music', T('Musik', 'Music'), T('Niedrig', 'Low'), '')
   ],
   story: ctx => []

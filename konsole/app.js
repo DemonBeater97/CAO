@@ -2,7 +2,7 @@
 /* CAO Konsole – Handy-App für PS5- und Xbox-Spieler ohne PC */
 (function () {
 'use strict';
-const VERSION = '1.2.0';
+const VERSION = '1.2.1';
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const val = x => typeof x === 'function' ? x() : x;
@@ -15,7 +15,7 @@ function toast(m, ms = 3000) { const t = $('#toast'); t.innerHTML = m; t.classLi
 const dev = () => C_DEVICES.find(d => d.id === st.dev && d.plat.includes(st.plat)) || C_DEVICES.find(d => d.plat.includes(st.plat));
 const CGAMES = () => GAMES.filter(g => g.plat && g.plat.includes(st.plat));
 const cgame = () => CGAMES().find(g => g.id === st.game) || CGAMES()[0];
-const prof = () => PROFILES.find(p => p.id === st.prof) || PROFILES[0];
+const prof = () => { const own = profilesFor(cgame().id).own; return own.find(p => p.id === st.prof) || own[0] || PROFILES.find(p => p.id === st.prof) || PROFILES[0]; };
 const devName = d => `${val(d.brand)} ${val(d.name)}`.replace(/^(Andere|Other) /, '');
 
 // ---------- Kopfhörer-Messung (AutoEQ) ----------
@@ -108,7 +108,8 @@ function renderStart() {
   <select class="sel" id="dev">${brands.map(b => `<optgroup label="${esc(b)}">${devs.filter(x => val(x.brand) === b).map(x => `<option value="${x.id}" ${x.id === d.id ? 'selected' : ''}>${esc(val(x.name))}</option>`).join('')}</optgroup>`).join('')}</select>
   <p class="hint"><span class="tag ${kindTag[0]}">${kindTag[1]}</span> ${d.where ? esc(val(d.where)) : T('Einstellen an Konsole und im Spiel', 'Set up on console and in game')}</p>
   <h4>${T('Sound-Profil', 'Sound profile')}</h4>
-  <select class="sel" id="prof">${PROFILES.filter(x => !x.hidden).map(x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${esc(x.name)} – ${esc(L(x, 'short') || '')}</option>`).join('')}</select>
+  ${(() => { const pf = profilesFor(cgame().id), opt = x => `<option value="${x.id}" ${x.id === p.id ? 'selected' : ''}>${esc(L(x, 'name'))} – ${esc(L(x, 'short') || '')}</option>`;
+    return `<select class="sel" id="prof">${(pf.own.length ? pf.own : pf.other.filter(x => !x.hidden)).map(opt).join('')}</select>`; })()}
   ${p.variant ? `<label class="hint" style="display:flex;gap:8px;align-items:center;margin-top:10px"><input type="checkbox" id="variant" ${st.variant ? 'checked' : ''}> ${esc(L(p, 'variantLabel') || p.variant.label)}</label>` : ''}
   <button class="btn" data-go="audio">${T('Weiter zu Audio →', 'Continue to audio →')}</button>
   <p class="hint" style="text-align:center;margin-top:14px">${T('Kein Eingriff ins Spiel · nur Anleitung', 'No game tampering · instructions only')}</p>`;
@@ -191,7 +192,7 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('li')) { e.preventDefault(); e.target.click(); } });
 document.addEventListener('change', e => {
   const t = e.target;
-  if (t.id === 'game') st.game = t.value;
+  if (t.id === 'game') { st.game = t.value; const own = profilesFor(cgame().id).own; if (own.length && !own.some(x => x.id === st.prof)) { st.prof = own[0].id; st.variant = false; } }
   else if (t.id === 'dev') { st.dev = t.value; meas = null; measFor = null; }
   else if (t.id === 'prof') { st.prof = t.value; st.variant = false; }
   else if (t.id === 'variant') st.variant = t.checked;
