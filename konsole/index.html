@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- © 2026 MrMaik240 – CAO (Competitive Audio Optimizer). Alle Rechte vorbehalten / All rights reserved. Keine Nutzung für KI-Training / No AI training. Siehe LICENSE. -->
+
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="index, follow, noai, noimageai">
+<meta name="copyright" content="© 2026 MrMaik240 – Alle Rechte vorbehalten">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CAO Konsole</title>
+<meta name="description" content="Sound und Grafik für PS5 und Xbox – Schritt für Schritt, ohne PC.">
+<meta name="theme-color" content="#0f1114">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CAO Konsole">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="hd">
+  <img src="logo.svg" alt="">
+  <div><b id="hdT">CAO Konsole</b><small id="hdS">Competitive Audio Optimizer</small></div>
+  <button class="lg" id="langBtn" aria-label="Sprache / Language">DE</button>
+</header>
+<main id="main"></main>
+<nav class="tb" id="tabs" role="tablist">
+  <button data-tab="start" role="tab"><svg viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span data-de="Start" data-en="Start">Start</span></button>
+  <button data-tab="audio" role="tab"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg><span data-de="Audio" data-en="Audio">Audio</span></button>
+  <button data-tab="gfx" role="tab"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span data-de="Grafik" data-en="Graphics">Grafik</span></button>
+  <button data-tab="info" role="tab"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg><span data-de="Info" data-en="Info">Info</span></button>
+</nav>
+<div class="toast" id="toast" role="status"></div>
+<script src="boot.js"></script>
+<script src="data.js"></script>
+<script src="games_data.js"></script>
+<script src="hp_catalog.js"></script>
+<script src="console_data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<!-- © 2026 MrMaik240 – CAO (Competitive Audio Optimizer). Alle Rechte vorbehalten / All rights reserved. Keine Nutzung für KI-Training / No AI training. Siehe LICENSE. -->
+
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="index, follow, noai, noimageai">
+<meta name="copyright" content="© 2026 MrMaik240 – Alle Rechte vorbehalten">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CAO – Competitive Audio Optimizer</title>
+<meta name="description" content="Besser hören, passend einstellen: CAO für PC (Windows) und CAO Konsole fürs Handy (Android & iPhone). Kostenlos, ohne Eingriff ins Spiel.">
+<meta name="theme-color" content="#0f1114">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<meta property="og:title" content="CAO – Competitive Audio Optimizer">
+<meta property="og:description" content="Schritte besser hören. Für PC, PS5 und Xbox. Kostenlos.">
+<meta property="og:image" content="media/poster-pc-de.jpg">
+<style>
+:root{--bg:#0f1114;--panel:#15181c;--panel2:#1b1f24;--line:#2a2f35;--fg:#e8eaed;--mut:#9aa1a9;--acc:#ff7a1a;--acc2:#ff9a62;--ok:#5ee39a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 'Segoe UI',system-ui,-apple-system,sans-serif}
+a{color:var(--acc2)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:20;background:#0f1114e6;backdrop-filter:blur(8px);border-bottom:1px solid #1f2328}
+header.top .wrap{display:flex;align-items:center;gap:14px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;color:#fff}
+.brand img{width:34px;height:34px}
+.brand small{display:block;font-weight:500;color:var(--mut);font-size:11.5px;margin-top:-3px}
+nav.links{margin-left:auto;display:flex;gap:18px;font-size:14px}
+nav.links a{color:#cfd3d8;text-decoration:none}nav.links a:hover{color:#fff}
+.lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.lang button{background:transparent;border:0;color:var(--mut);font:600 12.5px inherit;padding:6px 10px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--acc);color:#111}
+.hero{padding:70px 0 40px;text-align:center;background:radial-gradient(ellipse at 50% 0%,#2a180c 0%,#0f1114 62%)}
+.hero img.logo{width:118px;height:118px;filter:drop-shadow(0 14px 40px #ff7a1a44)}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.1;margin:18px 0 10px;letter-spacing:-.5px}
+.hero h1 span{color:var(--acc)}
+.hero p.lead{font-size:clamp(16px,2.2vw,20px);color:#c9ced4;max-width:720px;margin:0 auto}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:22px 0 0}
+.pills span{border:1px solid #ff7a1a55;color:#ffb27a;border-radius:20px;padding:4px 12px;font-size:13px}
+.pills span.soon{border-style:dashed;color:#fff;background:#ff7a1a22}
+section{padding:56px 0}
+h2.sec{font-size:clamp(24px,3.4vw,34px);margin:0 0 6px}
+p.sub{color:var(--mut);margin:0 0 26px}
+.dl{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.dlc{position:relative;display:flex;flex-direction:column;gap:10px}
+.dlc.rec{border-color:var(--acc);box-shadow:0 0 0 1px #ff7a1a55,0 18px 50px #ff7a1a14}
+.dlc .rb{position:absolute;top:-11px;left:20px;background:var(--acc);color:#111;font:800 11.5px inherit;border-radius:10px;padding:3px 10px;display:none}
+.dlc.rec .rb{display:block}
+.dlc .ic{width:46px;height:46px;border-radius:12px;background:#ff7a1a1a;display:grid;place-items:center}
+.dlc .ic svg{width:26px;height:26px;fill:none;stroke:var(--acc);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dlc h3{margin:4px 0 0;font-size:20px}
+.dlc .for{color:var(--mut);font-size:14px;margin:0}
+.dlc ul{margin:4px 0 6px;padding-left:18px;color:#cfd3d8;font-size:14.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--acc);color:#111;font-weight:700;text-decoration:none;border-radius:10px;padding:12px 16px;border:0;cursor:pointer;font-size:15px}
+.btn:hover{filter:brightness(1.08)}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#fff;border:1px solid #3a4047;text-decoration:none;border-radius:10px;padding:11px 16px;font-weight:600;font-size:14.5px;cursor:pointer}
+.btn2:hover{border-color:var(--acc)}
+.dlc .btns{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+.mini{font-size:12.5px;color:var(--mut)}
+.how{display:none;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;color:#cfd3d8}
+.how.on{display:block}.how ol{margin:4px 0 0;padding-left:18px}
+table.cmp{width:100%;border-collapse:collapse;font-size:14.5px}
+table.cmp th,table.cmp td{border-bottom:1px solid var(--line);padding:11px 10px;text-align:left;vertical-align:top}
+table.cmp th{color:var(--mut);font-weight:600;font-size:13px}
+table.cmp td:first-child{color:#cfd3d8}
+.y{color:var(--ok);font-weight:700}.n{color:#6f767e}
+.vtabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.vtabs button{background:var(--panel);border:1px solid var(--line);color:#cfd3d8;border-radius:20px;padding:7px 14px;font-family:inherit;font-weight:600;font-size:13.5px;cursor:pointer}
+.vtabs button[aria-pressed=true]{border-color:var(--acc);color:#fff;background:#ff7a1a1a}
+.video{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9}
+.video video{width:100%;height:100%;display:block}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.feat .card h3{margin:0 0 6px;font-size:16.5px}.feat .card p{margin:0;color:var(--mut);font-size:14.5px}
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600}.faq p{color:#cfd3d8;margin:10px 0 0;font-size:15px}
+footer{border-top:1px solid #1f2328;padding:28px 0 40px;color:var(--mut);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center}
+footer .r{margin-left:auto}
+@media (max-width:860px){.dl,.feat{grid-template-columns:1fr}nav.links{display:none}table.cmp{font-size:13px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#"><img src="logo.svg" alt=""><div>CAO<small>Competitive Audio Optimizer</small></div></a>
+  <nav class="links"><a href="#download" data-de="Download" data-en="Download">Download</a><a href="#was" data-de="Was ist was?" data-en="What is what?">Was ist was?</a><a href="#video" data-de="Videos" data-en="Videos">Videos</a><a href="#faq">FAQ</a></nav>
+  <div class="lang" role="group" aria-label="Sprache / Language"><button data-lang="de" aria-pressed="true">DE</button><button data-lang="en" aria-pressed="false">EN</button></div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <img class="logo" src="logo.svg" alt="CAO Logo">
+  <h1><span data-de="Schritte hören," data-en="Hear footsteps,">Schritte hören,</span><br><span style="color:#fff" data-de="bevor sie dich sehen." data-en="before they see you.">bevor sie dich sehen.</span></h1>
+  <p class="lead" data-de="CAO stellt Sound und Grafik für Shooter wie Call of Duty passend zu deinem Kopfhörer und deinem System ein – am PC automatisch, an der Konsole Schritt für Schritt erklärt." data-en="CAO tunes sound and graphics for shooters like Call of Duty to your headphones and your system – automatically on PC, explained step by step on console.">CAO stellt Sound und Grafik für Shooter wie Call of Duty passend zu deinem Kopfhörer und deinem System ein – am PC automatisch, an der Konsole Schritt für Schritt erklärt.</p>
+  <div class="pills"><span data-de="Kostenlos" data-en="Free">Kostenlos</span><span data-de="Kein Eingriff ins Spiel" data-en="No game tampering">Kein Eingriff ins Spiel</span><span data-de="310 Kopfhörer mit Messdaten" data-en="310 headphones with measurements">310 Kopfhörer mit Messdaten</span><span>PC · PS5 · Xbox</span><span class="soon" data-de="Bald: GTA 6" data-en="Coming: GTA 6">Bald: GTA 6</span></div>
+  <p style="margin-top:28px"><a class="btn" href="#download" id="heroBtn">↓ <span data-de="Zum Download" data-en="Go to download">Zum Download</span></a></p>
+</div></div>
+
+<section id="download"><div class="wrap">
+  <h2 class="sec" data-de="Download – wähle dein Gerät" data-en="Download – pick your device">Download – wähle dein Gerät</h2>
+  <p class="sub" data-de="Die Seite erkennt dein Gerät und markiert die passende Version." data-en="This page detects your device and highlights the right version.">Die Seite erkennt dein Gerät und markiert die passende Version.</p>
+  <div class="dl">
+    <div class="card dlc" data-plat="pc"><span class="rb" data-de="Für dein Gerät" data-en="For your device">Für dein Gerät</span>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+      <h3>CAO <span data-de="für PC" data-en="for PC">für PC</span></h3><p class="for" data-de="Windows 10/11 · für PC-Spieler und PS5/Xbox über Capture Card" data-en="Windows 10/11 · for PC players and PS5/Xbox via capture card">Windows 10/11 · für PC-Spieler und PS5/Xbox über Capture Card</p>
+      <ul><li data-de="Stellt Sound automatisch ein (Equalizer APO) oder zeigt Werte für SteelSeries Sonar" data-en="Sets up sound automatically (Equalizer APO) or shows values for SteelSeries Sonar">Stellt Sound automatisch ein (Equalizer APO) oder zeigt Werte für SteelSeries Sonar</li><li data-de="Eigener Raumklang, Schnellprofile, Game Optimizer" data-en="Own surround, quick profiles, Game Optimizer">Eigener Raumklang, Schnellprofile, Game Optimizer</li></ul>
+      <div class="btns"><a class="btn" id="dlPc" href="#">↓ <span data-de="Für Windows herunterladen" data-en="Download for Windows">Für Windows herunterladen</span></a><span class="mini" data-de="ca. 80 MB · Windows warnt evtl. – „Weitere Informationen“ → „Trotzdem ausführen“" data-en="approx. 80 MB · Windows may warn – “More info” → “Run anyway”">ca. 80 MB · Windows warnt evtl. – „Weitere Informationen“ → „Trotzdem ausführen“</span></div></div>
+    <div class="card dlc" data-plat="android"><span class="rb" data-de="Für dein Gerät" data-en="For your device">Für dein Gerät</span>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></div>
+      <h3 data-de="CAO Konsole · Android" data-en="CAO Console · Android">CAO Konsole · Android</h3><p class="for" data-de="Fürs Handy · für PS5- und Xbox-Spieler ohne PC" data-en="For your phone · for PS5 and Xbox players without a PC">Fürs Handy · für PS5- und Xbox-Spieler ohne PC</p>
+      <ul><li data-de="Werte für Basisstation, Headset-App, PS5/Xbox und Spiel" data-en="Values for base station, headset app, PS5/Xbox and game">Werte für Basisstation, Headset-App, PS5/Xbox und Spiel</li><li data-de="Grafik-Einstellungen zum Abhaken" data-en="Graphics settings as a checklist">Grafik-Einstellungen zum Abhaken</li></ul>
+      <div class="btns"><a class="btn" id="dlApk" href="#">↓ <span data-de="APK herunterladen" data-en="Download APK">APK herunterladen</span></a><a class="btn2" href="konsole/" data-de="Oder direkt im Browser öffnen" data-en="Or open right in the browser">Oder direkt im Browser öffnen</a>
+        <button class="btn2" data-how="a" data-de="So installierst du die APK" data-en="How to install the APK">So installierst du die APK</button>
+        <div class="how" id="how-a"><ol><li data-de="APK herunterladen und antippen." data-en="Download the APK and tap it.">APK herunterladen und antippen.</li><li data-de="Android fragt nach „Unbekannte Apps installieren“ → für den Browser erlauben." data-en="Android asks about “Install unknown apps” → allow it for your browser.">Android fragt nach „Unbekannte Apps installieren“ → für den Browser erlauben.</li><li data-de="Installieren – fertig." data-en="Install – done.">Installieren – fertig.</li></ol></div></div></div>
+    <div class="card dlc" data-plat="ios"><span class="rb" data-de="Für dein Gerät" data-en="For your device">Für dein Gerät</span>
+      <div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 5h2"/></svg></div>
+      <h3 data-de="CAO Konsole · iPhone" data-en="CAO Console · iPhone">CAO Konsole · iPhone</h3><p class="for" data-de="Web-App – kein App Store nötig" data-en="Web app – no App Store needed">Web-App – kein App Store nötig</p>
+      <ul><li data-de="Gleicher Inhalt wie die Android-App" data-en="Same content as the Android app">Gleicher Inhalt wie die Android-App</li><li data-de="Läuft auch offline, wenn einmal geöffnet" data-en="Works offline after the first visit">Läuft auch offline, wenn einmal geöffnet</li></ul>
+      <div class="btns"><a class="btn" href="konsole/">↗ <span data-de="CAO Konsole öffnen" data-en="Open CAO Console">CAO Konsole öffnen</span></a>
+        <button class="btn2" data-how="i" data-de="Auf den Home-Bildschirm legen" data-en="Add to home screen">Auf den Home-Bildschirm legen</button>
+        <div class="how" id="how-i"><ol><li data-de="In Safari „CAO Konsole öffnen“ tippen." data-en="Tap “Open CAO Console” in Safari.">In Safari „CAO Konsole öffnen“ tippen.</li><li data-de="Teilen-Symbol (□↑) tippen." data-en="Tap the share icon (□↑).">Teilen-Symbol (□↑) tippen.</li><li data-de="„Zum Home-Bildschirm“ → „Hinzufügen“." data-en="“Add to Home Screen” → “Add”.">„Zum Home-Bildschirm“ → „Hinzufügen“.</li></ol></div></div></div>
+  </div>
+</div></section>
+
+<section id="was" style="background:#0c0e11"><div class="wrap">
+  <h2 class="sec" data-de="Was ist was – und für wen?" data-en="What is what – and for whom?">Was ist was – und für wen?</h2>
+  <p class="sub" data-de="Kurz gesagt: Spielst du am PC (oder Konsole über Capture Card) → CAO für PC. Spielst du nur an der Konsole → CAO Konsole aufs Handy." data-en="In short: playing on PC (or console via capture card) → CAO for PC. Console only → CAO Console on your phone.">Kurz gesagt: Spielst du am PC (oder Konsole über Capture Card) → CAO für PC. Spielst du nur an der Konsole → CAO Konsole aufs Handy.</p>
+  <div class="card" style="overflow-x:auto"><table class="cmp">
+    <thead><tr><th></th><th data-de="CAO für PC" data-en="CAO for PC">CAO für PC</th><th data-de="CAO Konsole" data-en="CAO Console">CAO Konsole</th></tr></thead>
+    <tbody>
+      <tr><td data-de="Für wen" data-en="For whom">Für wen</td><td data-de="PC-Spieler · Konsole über Capture Card" data-en="PC players · console via capture card">PC-Spieler · Konsole über Capture Card</td><td data-de="PS5- und Xbox-Spieler ohne PC" data-en="PS5 and Xbox players without a PC">PS5- und Xbox-Spieler ohne PC</td></tr>
+      <tr><td data-de="Sound-Profile & Kopfhörer-Messdaten" data-en="Sound profiles & headphone measurements">Sound-Profile & Kopfhörer-Messdaten</td><td class="y">✓</td><td class="y">✓</td></tr>
+      <tr><td data-de="Stellt den Sound automatisch ein" data-en="Sets the sound automatically">Stellt den Sound automatisch ein</td><td class="y" data-de="✓ Equalizer APO" data-en="✓ Equalizer APO">✓ Equalizer APO</td><td class="n" data-de="– zeigt dir die Werte für Basisstation / App / Konsole" data-en="– shows values for base station / app / console">– zeigt dir die Werte für Basisstation / App / Konsole</td></tr>
+      <tr><td data-de="Eigener Raumklang & Kanal-Trick" data-en="Own surround & channel trick">Eigener Raumklang & Kanal-Trick</td><td class="y">✓</td><td class="n">–</td></tr>
+      <tr><td data-de="Schnellprofile, Tastenkürzel, Auto-Wechsel" data-en="Quick profiles, hotkeys, auto switch">Schnellprofile, Tastenkürzel, Auto-Wechsel</td><td class="y">✓</td><td class="n">–</td></tr>
+      <tr><td data-de="Grafik" data-en="Graphics">Grafik</td><td class="y" data-de="✓ Game Optimizer (automatisch)" data-en="✓ Game Optimizer (automatic)">✓ Game Optimizer (automatisch)</td><td class="y" data-de="✓ Liste zum Abhaken" data-en="✓ Checklist">✓ Liste zum Abhaken</td></tr>
+      <tr><td data-de="PS5/Xbox-Systemeinstellungen erklärt" data-en="PS5/Xbox system settings explained">PS5/Xbox-Systemeinstellungen erklärt</td><td class="y" data-de="✓ (Capture Card)" data-en="✓ (capture card)">✓ (Capture Card)</td><td class="y">✓</td></tr>
+    </tbody></table></div>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <h2 class="sec" data-de="Videos – alles in ein paar Minuten" data-en="Videos – everything in a few minutes">Videos – alles in ein paar Minuten</h2>
+  <p class="sub" data-de="Zeigt alle Funktionen. Mit Stimme und Untertiteln." data-en="Shows every feature. With voice and captions.">Zeigt alle Funktionen. Mit Stimme und Untertiteln.</p>
+  <div class="vtabs" role="group"><button data-vid="pc" aria-pressed="true" data-de="CAO für PC" data-en="CAO for PC">CAO für PC</button><button data-vid="ko" aria-pressed="false" data-de="CAO Konsole (PS5 / Xbox)" data-en="CAO Console (PS5 / Xbox)">CAO Konsole (PS5 / Xbox)</button></div>
+  <div class="video"><video id="vid" controls preload="none" playsinline poster="media/poster-pc-de.jpg" src="media/cao-pc-de.mp4"></video></div>
+</div></section>
+
+<section style="background:#0c0e11"><div class="wrap">
+  <h2 class="sec" data-de="Was CAO kann" data-en="What CAO does">Was CAO kann</h2><p class="sub"></p>
+  <div class="feat">
+    <div class="card"><h3 data-de="Sound pro Spiel" data-en="Sound per game">Sound pro Spiel</h3><p data-de="MW4 + DMZ, BO7/Warzone, Battlefield 6, Rainbow Six Siege X, ARC Raiders, WARDOGS, Valorant, CS2 – jeweils mit den passenden Einstellungen im Spiel." data-en="MW4 + DMZ, BO7/Warzone, Battlefield 6, Rainbow Six Siege X, ARC Raiders, WARDOGS, Valorant, CS2 – each with the right in-game settings.">MW4 + DMZ, BO7/Warzone, Battlefield 6, Rainbow Six Siege X, ARC Raiders, WARDOGS, Valorant, CS2 – jeweils mit den passenden Einstellungen im Spiel.</p></div>
+    <div class="card"><h3 data-de="310 Kopfhörer" data-en="310 headphones">310 Kopfhörer</h3><p data-de="Gaming-Headsets, Studio, In-Ear (IEM) – mit echten Messdaten, die sich automatisch aktualisieren." data-en="Gaming headsets, studio, in-ear (IEM) – with real measurements that update automatically.">Gaming-Headsets, Studio, In-Ear (IEM) – mit echten Messdaten, die sich automatisch aktualisieren.</p></div>
+    <div class="card"><h3 data-de="Bald: GTA 6" data-en="Coming: GTA 6">Bald: GTA 6</h3><p data-de="GTA 6 erscheint am 19. November 2026 für PS5 und Xbox. Sobald es draußen ist, bekommt es eigene Einstellungen in CAO." data-en="GTA 6 launches on November 19, 2026 for PS5 and Xbox. Once it’s out, it gets its own settings in CAO.">GTA 6 erscheint am 19. November 2026 für PS5 und Xbox. Sobald es draußen ist, bekommt es eigene Einstellungen in CAO.</p></div>
+    <div class="card"><h3 data-de="Ohne Risiko" data-en="No risk">Ohne Risiko</h3><p data-de="Kein Eingriff ins Spiel, kein VPN. Jede geänderte Datei wird gesichert und ist mit einem Klick zurück." data-en="No game tampering, no VPN. Every changed file is backed up and restorable in one click.">Kein Eingriff ins Spiel, kein VPN. Jede geänderte Datei wird gesichert und ist mit einem Klick zurück.</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap faq">
+  <h2 class="sec">FAQ</h2><p class="sub"></p>
+  <details><summary data-de="Kann ich dafür gebannt werden?" data-en="Can I get banned for this?">Kann ich dafür gebannt werden?</summary><p data-de="Nein. CAO greift nicht ins Spiel ein. Am PC ändert es nur deinen Windows-Sound (Equalizer APO) und – nur wenn du willst – die normale Einstellungsdatei des Spiels, mit denselben Werten wie im Spielmenü. An der Konsole zeigt es dir nur, was du einstellst." data-en="No. CAO does not touch the game. On PC it only changes your Windows sound (Equalizer APO) and – only if you want – the regular game settings file, with the same values as the in-game menu. On console it only shows you what to set.">Nein. CAO greift nicht ins Spiel ein. Am PC ändert es nur deinen Windows-Sound (Equalizer APO) und – nur wenn du willst – die normale Einstellungsdatei des Spiels, mit denselben Werten wie im Spielmenü. An der Konsole zeigt es dir nur, was du einstellst.</p></details>
+  <details><summary data-de="Warum warnt Windows beim Installieren?" data-en="Why does Windows warn when installing?">Warum warnt Windows beim Installieren?</summary><p data-de="CAO ist (noch) nicht mit einem kostenpflichtigen Zertifikat signiert. Windows kennt die Datei deshalb nicht. „Weitere Informationen“ → „Trotzdem ausführen“." data-en="CAO is not (yet) signed with a paid certificate, so Windows doesn't know the file. “More info” → “Run anyway”.">CAO ist (noch) nicht mit einem kostenpflichtigen Zertifikat signiert. Windows kennt die Datei deshalb nicht. „Weitere Informationen“ → „Trotzdem ausführen“.</p></details>
+  <details><summary data-de="Kostet CAO etwas?" data-en="Does CAO cost anything?">Kostet CAO etwas?</summary><p data-de="Nein, CAO ist kostenlos. Es ist ein Fan-Projekt und nicht mit Activision, SteelSeries, Sony, Microsoft, Riot oder Valve verbunden." data-en="No, CAO is free. It's a fan project and not affiliated with Activision, SteelSeries, Sony, Microsoft, Riot or Valve.">Nein, CAO ist kostenlos. Es ist ein Fan-Projekt und nicht mit Activision, SteelSeries, Sony, Microsoft, Riot oder Valve verbunden.</p></details>
+  <details><summary data-de="Mein Kopfhörer fehlt – was nun?" data-en="My headphones are missing – what now?">Mein Kopfhörer fehlt – was nun?</summary><p data-de="In CAO für PC kannst du über „Alle 8.800 Modelle durchsuchen“ jede Messung von AutoEQ finden. Ohne Messung läuft dein Kopfhörer neutral – die Sound-Profile funktionieren trotzdem." data-en="In CAO for PC, “Search all 8,800 models” finds any AutoEQ measurement. Without one, your headphones run neutral – sound profiles still work.">In CAO für PC kannst du über „Alle 8.800 Modelle durchsuchen“ jede Messung von AutoEQ finden. Ohne Messung läuft dein Kopfhörer neutral – die Sound-Profile funktionieren trotzdem.</p></details>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© 2026 MrMaik240 · CAO (Competitive Audio Optimizer)</span>
+  <a href="https://www.twitch.tv/mrmaik240" rel="noopener">twitch.tv/MrMaik240</a>
+  <a href="https://github.com/DemonBeater97" rel="noopener">GitHub</a>
+  <span class="r" data-de="Messdaten: AutoEQ (MIT) · Raumklang: TU Berlin FABIAN (CC BY 4.0), MIT KEMAR" data-en="Measurements: AutoEQ (MIT) · Surround: TU Berlin FABIAN (CC BY 4.0), MIT KEMAR">Messdaten: AutoEQ (MIT) · Raumklang: TU Berlin FABIAN (CC BY 4.0), MIT KEMAR</span>
+</div></footer>
+
+<script>
+// ---- Einstellungen: hier nur den GitHub-Namen und das Repository anpassen ----
+const GH_USER = 'DemonBeater97', GH_REPO = 'CAO';
+const REL = `https://github.com/${GH_USER}/${GH_REPO}/releases/latest/download/`;
+document.getElementById('dlPc').href = REL + 'CAO-Setup.exe';
+document.getElementById('dlApk').href = REL + 'CAO-Konsole.apk';
+
+// ---- Gerät erkennen ----
+const ua = navigator.userAgent;
+const plat = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ? 'ios' : /Android/.test(ua) ? 'android' : 'pc';
+document.querySelectorAll('.dlc').forEach(c => c.classList.toggle('rec', c.dataset.plat === plat));
+if (plat !== 'pc') { const g = document.querySelector('.dl'); g.prepend(document.querySelector(`.dlc[data-plat="${plat}"]`)); }
+
+// ---- Sprache ----
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-de]').forEach(e => { e.textContent = e.dataset[l]; });
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+  try { localStorage.setItem('cao-web-lang', l); } catch {}
+  curLang = l; pickVid(curVid);
+}
+document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.lang));
+
+// ---- Anleitungen auf/zu ----
+document.querySelectorAll('[data-how]').forEach(b => b.onclick = () => document.getElementById('how-' + b.dataset.how).classList.toggle('on'));
+
+// ---- Videos ----
+let curVid = 'pc', curLang = 'de';
+// Videos immer in der Sprache der Seite: Deutsch → deutsche Videos, Englisch → englische Videos
+function pickVid(id) {
+  curVid = id;
+  const v = document.getElementById('vid'), f = `${id}-${curLang}`;
+  document.querySelectorAll('[data-vid]').forEach(b => b.setAttribute('aria-pressed', b.dataset.vid === id));
+  v.pause(); v.src = `media/cao-${f}.mp4`; v.poster = `media/poster-${f}.jpg`;
+}
+document.querySelectorAll('[data-vid]').forEach(b => b.onclick = () => pickVid(b.dataset.vid));
+
+let start = 'de'; try { start = localStorage.getItem('cao-web-lang') || (navigator.language || 'de').slice(0, 2); } catch {}
+setLang(start === 'en' ? 'en' : 'de');
+</script>
+<!-- Besucherzähler (GoatCounter) -->
+<script data-goatcounter="https://demonbeater.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

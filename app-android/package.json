@@ -1,0 +1,16 @@
+{
+  "name": "cao-konsole-android",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Android-Hülle (APK) für CAO Konsole – wird automatisch von GitHub gebaut",
+  "dependencies": {
+    "@capacitor/android": "6.2.1",
+    "@capacitor/core": "6.2.1"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "3.0.5",
+    "@capacitor/cli": "6.2.1"
+  },
+  "license": "UNLICENSED",
+  "author": "MrMaik240"
+}

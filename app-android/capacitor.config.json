@@ -1,0 +1,6 @@
+{
+  "appId": "de.mrmaik240.caokonsole",
+  "appName": "CAO Konsole",
+  "webDir": "www",
+  "android": { "backgroundColor": "#0f1114" }
+}

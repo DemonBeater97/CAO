@@ -1,0 +1,3 @@
+# ai.txt – CAO (c) 2026 MrMaik240. Keine Nutzung für KI-Training. / No AI training. See LICENSE.
+User-Agent: *
+Disallow: /

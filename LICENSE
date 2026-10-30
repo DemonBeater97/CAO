@@ -1,0 +1,71 @@
+CAO – Competitive Audio Optimizer
+Copyright (c) 2026 MrMaik240 (GitHub: DemonBeater97). Alle Rechte vorbehalten. / All rights reserved.
+
+=============================== DEUTSCH ===============================
+
+1. Dieses Repository, die Webseite, CAO für PC, CAO Konsole sowie alle zugehörigen
+   Texte, Profile, Daten-Zusammenstellungen, Grafiken, Logos und Videos („die Werke“)
+   sind urheberrechtlich geschützt.
+
+2. Erlaubt ist ausschließlich:
+   - die Werke anzusehen,
+   - CAO für PC und CAO Konsole für den eigenen, privaten Gebrauch herunterzuladen,
+     zu installieren und zu benutzen,
+   - auf die offizielle Webseite und dieses Repository zu verlinken.
+
+3. Ohne vorherige schriftliche Erlaubnis von MrMaik240 ist verboten:
+   - die Werke ganz oder teilweise zu kopieren, nachzubauen, zu verändern, zu übersetzen
+     oder daraus abgeleitete Werke zu erstellen,
+   - die Werke oder Teile davon erneut zu veröffentlichen, hochzuladen, weiterzugeben,
+     zu verkaufen, zu vermieten oder anderweitig kommerziell zu nutzen,
+   - die Werke oder Teile davon zum Training, Fine-Tuning, Testen oder Betreiben von
+     Systemen der künstlichen Intelligenz (KI) bzw. des maschinellen Lernens zu verwenden
+     oder automatisiert auszulesen (Text- und Data-Mining). Dieser Vorbehalt gilt
+     ausdrücklich auch im Sinne von § 44b Abs. 3 UrhG und Art. 4 Abs. 3 der
+     EU-Richtlinie 2019/790.
+
+4. Ausgenommen sind Bestandteile Dritter, die unter ihren eigenen Lizenzen stehen
+   (siehe unten). Für diese gelten allein deren Bedingungen.
+
+5. Die Werke werden „wie besehen“ bereitgestellt, ohne Gewährleistung. Die Nutzung erfolgt
+   auf eigenes Risiko. CAO ist ein Fan-Projekt und nicht mit Activision, Electronic Arts,
+   Ubisoft, Embark Studios, Bulkhead, Riot Games, Valve, Rockstar Games, SteelSeries, Sony,
+   Microsoft oder den Kopfhörer-Herstellern verbunden. Alle Marken gehören ihren Inhabern.
+
+Anfragen zur Nutzung: über GitHub (DemonBeater97) oder twitch.tv/MrMaik240.
+
+=============================== ENGLISH ===============================
+
+1. This repository, the website, CAO for PC, CAO Console and all related texts, profiles,
+   data compilations, graphics, logos and videos ("the works") are protected by copyright.
+
+2. You may only:
+   - view the works,
+   - download, install and use CAO for PC and CAO Console for your own private use,
+   - link to the official website and this repository.
+
+3. Without prior written permission from MrMaik240 you may NOT:
+   - copy, recreate, modify, translate or create derivative works of the works, in whole
+     or in part,
+   - republish, re-upload, distribute, sell, rent or otherwise commercially exploit the
+     works or any part of them,
+   - use the works or any part of them to train, fine-tune, test or operate artificial
+     intelligence (AI) / machine learning systems, or extract them by automated means
+     (text and data mining). This reservation of rights expressly applies within the
+     meaning of Art. 4(3) of EU Directive 2019/790.
+
+4. Third-party components are excluded and remain under their own licences (see below).
+
+5. The works are provided "as is", without warranty. Use at your own risk. CAO is a fan
+   project and is not affiliated with Activision, Electronic Arts, Ubisoft, Embark Studios,
+   Bulkhead, Riot Games, Valve, Rockstar Games, SteelSeries, Sony, Microsoft or any
+   headphone manufacturer. All trademarks belong to their owners.
+
+========================= BESTANDTEILE DRITTER / THIRD-PARTY =========================
+
+- AutoEQ (Jaakko Pasanen) – Kopfhörer-Messdaten / headphone measurements – MIT License,
+  https://github.com/jaakkopasanen/AutoEq
+- FABIAN HRTF database (TU Berlin, Brinkmann et al.) – CC BY 4.0,
+  https://doi.org/10.14279/depositonce-5718.5
+- MIT KEMAR HRTF measurements (Gardner & Martin, MIT Media Lab, 1994)
+- Electron – MIT License; Capacitor – MIT License
