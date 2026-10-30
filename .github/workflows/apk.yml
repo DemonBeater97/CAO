@@ -1,0 +1,66 @@
+# Baut automatisch die Android-App (APK) aus dem Ordner "konsole"
+# und hängt sie als "CAO-Konsole.apk" an die neueste Veröffentlichung (Release).
+name: APK bauen
+
+on:
+  workflow_dispatch:          # per Knopf unter "Actions" starten
+  release:
+    types: [published]        # bei jeder neuen Veröffentlichung
+  push:
+    branches: [main]
+    paths: ['konsole/**', 'app-android/**', '.github/workflows/apk.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Abhängigkeiten
+        working-directory: app-android
+        run: npm install
+
+      - name: Web-App übernehmen
+        working-directory: app-android
+        run: |
+          rm -rf www
+          cp -r ../konsole www
+
+      - name: Android-Projekt anlegen
+        working-directory: app-android
+        run: |
+          npx cap add android
+          npx capacitor-assets generate --android --iconBackgroundColor '#0f1114' --iconBackgroundColorDark '#0f1114' --splashBackgroundColor '#0f1114' --splashBackgroundColorDark '#0f1114'
+          npx cap sync android
+
+      - name: APK bauen
+        working-directory: app-android/android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --no-daemon
+          cp app/build/outputs/apk/debug/app-debug.apk ../../CAO-Konsole.apk
+
+      - name: APK als Download bei "Actions" ablegen
+        uses: actions/upload-artifact@v4
+        with:
+          name: CAO-Konsole-APK
+          path: CAO-Konsole.apk
+
+      - name: APK an die neueste Veröffentlichung hängen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=$(gh release view --json tagName -q .tagName 2>/dev/null || true)
+          if [ -n "$TAG" ]; then gh release upload "$TAG" CAO-Konsole.apk --clobber; else echo "Noch keine Veröffentlichung – APK liegt nur unter Actions."; fi
